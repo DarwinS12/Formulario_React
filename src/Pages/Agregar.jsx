@@ -1,16 +1,17 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import {FcAddDatabase} from "react-icons/fc"
 
-const Usuarios = () => {
+const Agregar = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(
-        "https://peticiones.online/api/users",
+        "http://localhost:5282/api/Producto/Guardar",
         data
       );
-      console.log(response), alert("Se ha guardado con éxito");
+      console.log(response.data.response), alert("Se ha guardado con éxito");
     } catch (error) {
       console.error(error);
     }
@@ -18,28 +19,32 @@ const Usuarios = () => {
 
   return (
     <div>
-      <h1>Agrega un nuevo usuario</h1>
+      <h1>Agrega un nuevo Producto <FcAddDatabase/> </h1>
       <form className="" onSubmit={handleSubmit(onSubmit)}>
         <input
           className="input"
-          placeholder="First Name"
-          {...register("first_name")}
+          placeholder="ID del Producto"
+          {...register("idProducto")}
         />
         <input
           className="input"
-          placeholder="Last Name"
-          {...register("last_name")}
+          placeholder="Código de barras"
+          {...register("codigoBarra")}
         />
-        <input className="input" placeholder="email" {...register("email")} />
+        <input 
+        className="input" 
+        placeholder="Descripción" 
+        {...register("descripcion")} 
+        />
         <input
           className="input"
-          placeholder="Username"
-          {...register("username")}
+          placeholder="Marca"
+          {...register("marca")}
         />
         <input
           className="input"
-          placeholder="Password"
-          {...register("password")}
+          placeholder="Precio"
+          {...register("precio")}
         />
         <button className="button" type="submit">
           Enviar
@@ -48,4 +53,4 @@ const Usuarios = () => {
     </div>
   );
 };
-export default Usuarios;
+export default Agregar;
