@@ -2,12 +2,12 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { FcDeleteDatabase } from "react-icons/fc";
 import { useParams } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 const Eliminar = () => {
   const { handleSubmit } = useForm();
 
-  const {idProducto} = useParams() //useParams() es utilizado para acceder a los parámetros de la URL
+  const { idProducto } = useParams(); //useParams() es utilizado para acceder a los parámetros de la URL
 
   const onSubmit = async () => {
     try {
@@ -30,6 +30,9 @@ const Eliminar = () => {
           Enviar
         </button>
       </form>
+      <Link className="LinkbuttonR" to={"/Obtener/"}>
+        Regresar
+      </Link>
     </div>
   );
 };

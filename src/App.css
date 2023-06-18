@@ -49,6 +49,13 @@
   height: 20px;
 }
 
+.select{
+  margin-right: 20px;
+  margin-top: 1px;
+  margin-bottom: 25px;
+  height:26px;
+  width: 200px;
+}
 
 .button{
   display: block;
@@ -103,6 +110,29 @@
   border-color: #61dafbaa;
   
 }
+
+.LinkbuttonR{
+  color:aliceblue;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  justify-content: center ;
+  transition: border-color 0.25s;
+  margin: 0 auto;
+  display: flex;
+  margin-top: 15px;
+  width: 50px;
+
+}
+.LinkbuttonR:hover{
+  border-color: rgb(255, 142, 4);
+}
+
 .LinkbuttonD{
   color:aliceblue;
     border-radius: 8px;
@@ -117,4 +147,14 @@
 }
 .LinkbuttonD:hover{
   border-color:#646cffaa;
+}
+
+.TextArea{
+  margin-right: 20px;
+  margin-top: 1px;
+  margin-bottom: 25px;
+  height: 200px;
+  width: 800px;
+  font-size: 20px;
+  resize: none;
 }

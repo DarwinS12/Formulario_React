@@ -1,0 +1,41 @@
+import { useForm } from "react-hook-form";
+
+const Form = ({ onSubmit, initialValues }) => {
+  const { register, handleSubmit } = useForm({ defaultValues: initialValues });
+
+  return (
+    <form className="" onSubmit={handleSubmit(onSubmit)}>
+      <input
+        className="input"
+        placeholder="ID del Producto"
+        {...register("idProducto")}
+      />
+      <select
+      className="select"
+      {...register("idCategoria")}
+      >
+         <option value="" disabled selected hidden>Selecciona una Categoría</option>
+        <option value="1">1: Tecnología</option>
+        <option value="2">2: ElectroHogar</option>
+        <option value="3">3: Accesorios</option>
+      </select>
+      <input
+        className="input"
+        placeholder="Código de barras"
+        {...register("codigoBarra")}
+      />
+      <input
+        className="input"
+        placeholder="Descripción"
+        {...register("descripcion")}
+      />
+      <input className="input" placeholder="Marca" {...register("marca")} />
+      <input className="input" placeholder="Precio" {...register("precio")} />
+      <button className="button" type="submit">
+        Enviar
+      </button>
+    </form>
+  );
+};
+
+export default Form;

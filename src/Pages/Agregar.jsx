@@ -1,10 +1,9 @@
 import axios from "axios";
-import { useForm } from "react-hook-form";
-import {FcAddDatabase} from "react-icons/fc"
+import { FcAddDatabase } from "react-icons/fc";
+import Form from "../Components/Form";
+import { Link } from "react-router-dom";
 
 const Agregar = () => {
-  const { register, handleSubmit } = useForm();
-
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(
@@ -19,37 +18,13 @@ const Agregar = () => {
 
   return (
     <div>
-      <h1>Agrega un nuevo Producto <FcAddDatabase/> </h1>
-      <form className="" onSubmit={handleSubmit(onSubmit)}>
-        <input
-          className="input"
-          placeholder="ID del Producto"
-          {...register("idProducto")}
-        />
-        <input
-          className="input"
-          placeholder="Código de barras"
-          {...register("codigoBarra")}
-        />
-        <input 
-        className="input" 
-        placeholder="Descripción" 
-        {...register("descripcion")} 
-        />
-        <input
-          className="input"
-          placeholder="Marca"
-          {...register("marca")}
-        />
-        <input
-          className="input"
-          placeholder="Precio"
-          {...register("precio")}
-        />
-        <button className="button" type="submit">
-          Enviar
-        </button>
-      </form>
+      <h1>
+        Agrega un nuevo Producto <FcAddDatabase />{" "}
+      </h1>
+      <Form onSubmit={onSubmit} />
+      <Link className="LinkbuttonR" to={"/"}>
+        Regresar
+      </Link>
     </div>
   );
 };

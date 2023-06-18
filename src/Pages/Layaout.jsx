@@ -1,5 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
-import{ FcAddDatabase, FcHome, FcDatabase} from "react-icons/fc"
+import{ FcAddDatabase, FcHome, FcDatabase, FcSupport} from "react-icons/fc"
 
 
 const Layaout = () => {
@@ -15,6 +15,9 @@ const Layaout = () => {
           </li>
           <li>
             <Link to="/Agregar">Agregar <FcAddDatabase/> </Link>
+          </li>
+          <li>
+            <Link to="/Soporte">Soporte <FcSupport/> </Link>
           </li>
         </ul>
       </nav>

@@ -37,6 +37,7 @@ const Obtener = () => {
               <p>Descripción: {producto.descripcion}</p>
               <p>Marca: {producto.marca}</p>
               <p>Precio: {producto.precio}</p>
+              <p>ID de la Categoría: {producto.oCategoria.idCategoria}</p>
               <p>Categoría: {producto.oCategoria.descripcion}</p>
               <Link
                 className="LinkbuttonA"
