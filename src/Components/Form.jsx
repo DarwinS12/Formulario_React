@@ -4,14 +4,14 @@ const Form = ({ onSubmit, initialValues }) => {
   const { register, handleSubmit } = useForm({ defaultValues: initialValues });
 
   return (
-    <form className="" onSubmit={handleSubmit(onSubmit)}>
+    <form className="form-products" onSubmit={handleSubmit(onSubmit)}>
       <input
-        className="input"
+        className="input-form"
         placeholder="ID del Producto"
         {...register("idProducto")}
       />
       <select
-      className="select"
+      className="select-form"
       {...register("idCategoria")}
       >
          <option value="" disabled selected hidden>Selecciona una Categoría</option>
@@ -20,18 +20,18 @@ const Form = ({ onSubmit, initialValues }) => {
         <option value="3">3: Accesorios</option>
       </select>
       <input
-        className="input"
+        className="input-form"
         placeholder="Código de barras"
         {...register("codigoBarra")}
       />
       <input
-        className="input"
+        className="input-form"
         placeholder="Descripción"
         {...register("descripcion")}
       />
-      <input className="input" placeholder="Marca" {...register("marca")} />
-      <input className="input" placeholder="Precio" {...register("precio")} />
-      <button className="button" type="submit">
+      <input className="input-form" placeholder="Marca" {...register("marca")} />
+      <input className="input-form" placeholder="Precio" {...register("precio")} />
+      <button className="btn-form" type="submit">
         Enviar
       </button>
     </form>

@@ -1,20 +1,30 @@
 import React, { useState } from "react";
 import { FcSupport } from "react-icons/fc";
 import LocalStorage from "../Components/LocalStorage";
+import { useSnackbar } from "notistack";
+
 
 const Soporte = () => {
   const [textArea, setTextArea] = LocalStorage("textArea", "");
 
   const [button, setButton] = useState(false);
 
+  const { enqueueSnackbar } = useSnackbar();
+
+  const handleAlert = () => {
+    enqueueSnackbar("Se ha enviado con éxito", {
+      variant: "success",
+    });
+  };
+
   const handleSubmit = () => {
-    alert("Enviado con éxito");
+    handleAlert()
     setButton(true);
   };
 
   return (
     <div>
-      <h1>
+      <h1 className="title-pages">
         Soporte <FcSupport />
       </h1>
       <textarea
@@ -24,7 +34,7 @@ const Soporte = () => {
         value={textArea}
         onChange={(e) => setTextArea(e.target.value)}
       />
-      <button className="button" disabled={button} onClick={handleSubmit}>
+      <button className="btn-support" disabled={button} onClick={handleSubmit}>
         Enviar
       </button>
     </div>

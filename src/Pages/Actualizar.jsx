@@ -4,15 +4,25 @@ import { FcDataBackup } from "react-icons/fc";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Form from "../Components/Form";
+import { useSnackbar } from "notistack";
+
 
 const Actualizar = () => {
   const [producto, setproducto] = useState(null);
 
   const { idProducto } = useParams();
 
+  const { enqueueSnackbar } = useSnackbar();
+
   useEffect(() => {
     loadproducto();
   }, []);
+
+  const handleAlert = () => {
+    enqueueSnackbar("Se ha actualizado con éxito", {
+      variant: "success",
+    });
+  };
 
   const onSubmit = async (data) => {
     try {
@@ -20,7 +30,9 @@ const Actualizar = () => {
         `http://localhost:5282/api/Producto/Editar/${idProducto}`,
         data
       );
-      console.log(response.data.response), alert("Se ha actualizado con éxito");
+      console.log(response.data.response);
+      handleAlert();
+      
     } catch (error) {
       console.error(error);
     }
