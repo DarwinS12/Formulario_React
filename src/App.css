@@ -14,18 +14,20 @@
   color: #888;
 }
 
-.input{
+.input {
   margin-right: 20px;
   margin-top: 1px;
   margin-bottom: 25px;
   height: 20px;
 }
 
-.input-form{
+.input-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 20px;
   margin-top: 1px;
   margin-bottom: 25px;
-  height: 20px;
   border-radius: 3px;
   border: none;
   background-color: rgb(138, 138, 138);
@@ -34,15 +36,20 @@
   color: black;
 }
 
-.span-items{
+.input-form:focus {
+  outline-style: 1px solid;
+  outline-color: rgba(255, 166, 0, 0.349);
+}
+
+.span-items {
   color: rgba(255, 166, 0, 0.589);
 }
 
-.select-form{
+.select-form {
   margin-right: 20px;
   margin-top: 1px;
   margin-bottom: 25px;
-  height: 23px;
+  height: 24px;
   width: 250px;
   border-radius: 3px;
   border: none;
@@ -51,47 +58,48 @@
   font-size: 17px;
 }
 
-.form-products{
+.form-products {
   display: flex;
-  padding: 50px;
   justify-content: center;
+  align-items: center;
 }
 
-.btn-form{
-  color:aliceblue;
+.btn-form {
+  display: flex;
+  justify-content: center;
   align-items: center;
+  position: relative;
+  top: -10px;
   border-radius: 8px;
+  color: aliceblue;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-family: inherit;
   background-color: #353536;
   cursor: pointer;
-  justify-content: center ;
   transition: border-color 0.25s;
   width: 100px;
   height: 40px;
   text-decoration: none;
-  
 }
-.btn-form:hover{
-  border-color:  rgb(255, 142, 4);
+.btn-form:hover {
+  border-color: rgb(255, 142, 4);
   transform: scale(1.2);
   border-radius: 11px;
 }
 
-
-.button{
+.button {
   display: block;
   margin: 0 auto;
 }
 
-.ul{
+.ul {
   margin-bottom: 35px;
   font-size: larger;
 }
 
-.title-pages{
+.title-pages {
   margin-bottom: 30px;
 }
 
@@ -99,63 +107,67 @@
   margin-top: 1px;
   margin-bottom: 80px;
 }
-.icon{
+.icon {
   font-size: 100px;
   text-align: center;
   margin-bottom: 1px;
 }
 
-.productos{
-  display:inline-block;
+.productos {
+  display: inline-block;
   margin: 10px;
   border: 1px solid rgba(255, 166, 0, 0.349);
+  box-shadow: 5px 5px 10px rgba(255, 166, 0, 0.349);
   border-radius: 6px;
 }
-.producto{
-  display:grid;
+.producto {
+  display: grid;
   width: 550px;
   padding: 20px;
-  font-size: 18px
-
+  font-size: 18px;
 }
 
-.Id-product{
+.Id-product {
   padding: 10px;
   color: aliceblue;
 }
 
-.description{
+.description {
   margin: 5px;
   color: aliceblue;
 }
 
-.buttons-container{
-  display:flex;
+.buttons-container {
+  display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 35px;
 }
 
-.Link{
+.Link {
   color: black;
   text-decoration: none;
 }
 
-.drop-Link{
+.drop-Link {
   color: aliceblue;
   text-decoration: none;
 }
 
-.inputLoging{
+.inputLoging {
   border-radius: 3px;
-  border: none;
   background-color: rgb(138, 138, 138);
-  outline-color: aliceblue;
   font-size: 17px;
+  border: none;
 }
 
-.btn-loggin{
-  color:aliceblue;
+.inputLoging:focus {
+  outline-style: 9px solid;
+  outline-color: rgba(255, 166, 0, 0.349);
+}
+
+.btn-loggin {
+  color: aliceblue;
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -165,9 +177,9 @@
   font-family: inherit;
   background-color: #353536;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.35s;
 }
-.btn-loggin:hover{
+.btn-loggin:hover {
   border-color: rgb(255, 142, 4);
   transform: scale(1.2);
   border-radius: 11px;
@@ -175,45 +187,48 @@
 
 .btn-logout {
   border: 2px solid aliceblue;
-  background: none;
+  background: transparent;
   color: aliceblue;
   padding: 5px 20px;
   font-size: 16px;
   border-radius: 6px;
+  height: 35px;
   cursor: pointer;
   left: 4rem;
-  }
-  
-  .btn-logout:hover {
-  border-color: rgb(255, 142, 4);
-  transform: scale(1.2);
+  transition: background-color 0.45s;
+}
+
+.btn-logout:hover {
+  background-color: rgb(255, 142, 4);
+  transform: scale(1.1);
   border-radius: 11px;
-  }
+}
 
-.LinkbuttonA{
-  color:aliceblue;
+.btn-open {
+  display: flex;
+  position: relative;
   align-items: center;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #353536;
-    cursor: pointer;
-    transition: border-color 0.25s;
-    margin: 50px;
-    text-decoration: none
-  
-}
-.LinkbuttonA:hover{
-  border-color: rgb(255, 142, 4);
-  transform: scale(1.2);
-  border-radius: 11px;  
+  justify-content: center;
+  background-color: transparent;
+  border: 2px solid;
+  width: 90px;
+  height: 35px;
+  font-size: 16px;
+  color: aliceblue;
+  padding: 5px 20px;
+  border-radius: 6px;
+  transition: background-color 0.45s;
 }
 
-.LinkbuttonR{
-  color:aliceblue;
+.btn-open:hover {
+  background-color: rgb(255, 142, 4);
+  transform: scale(1.1);
+  border-radius: 11px;
+  color: aliceblue;
+}
+
+.LinkbuttonA {
+  color: aliceblue;
   align-items: center;
   border-radius: 8px;
   border: 1px solid transparent;
@@ -223,105 +238,91 @@
   font-family: inherit;
   background-color: #353536;
   cursor: pointer;
-  justify-content: center ;
+  transition: border-color 0.25s;
+  margin: 50px;
+  text-decoration: none;
+}
+.LinkbuttonA:hover {
+  border-color: rgb(255, 142, 4);
+  transform: scale(1.2);
+  border-radius: 11px;
+}
+
+.LinkbuttonR {
+  color: aliceblue;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #353536;
+  cursor: pointer;
+  justify-content: center;
   transition: border-color 0.25s;
   margin: 0 auto;
   display: flex;
   margin-top: 15px;
   width: 100px;
   text-decoration: none;
-
 }
-.LinkbuttonR:hover{
+.LinkbuttonR:hover {
   border-color: rgb(255, 142, 4);
   transform: scale(1.2);
   border-radius: 11px;
 }
 
-.LinkbuttonD{
-  color:aliceblue;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #353536;
-    cursor: pointer;
-    transition: border-color 0.25s;
-    text-decoration: none;
+.LinkbuttonD {
+  color: aliceblue;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #353536;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  text-decoration: none;
 }
-.LinkbuttonD:hover{
+.LinkbuttonD:hover {
   border-color: rgb(255, 142, 4);
   transform: scale(1.2);
-  border-radius: 11px;  
+  border-radius: 11px;
 }
 
-.p-link{
+.p-link {
   font-size: large;
   margin: 1px;
   margin-bottom: 6px;
 }
 
-.p-link :hover{
+.p-link :hover {
   color: orange;
 }
-.span-click{
+.span-click {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   right: 40rem;
-  top: 3.5rem;
-  font-size: xx-large;
-  user-select: none;
-  align-items: center;
-  display: flex;
-  color:aliceblue;
 }
 
-.span-click :hover {
-  color: rgb(223, 148, 35);
-}
-
-.drop-menu{
-  position: absolute;
-  align-items: center;
-  top: 3.5rem;
-  right: -1.5rem;
-  width: 100px;
-  height: 120px;
-  padding: 15px;
-  border-radius: 15px;
-  background-color: rgb(56, 56, 56);
-  border: 1px solid rgb(0, 0, 0);
-}
-
-.drop-menu :before{
-  content: "";
-  position: absolute;
-  align-items: center;
-  top: -0.7211rem;
-  right: 1.1rem;
-  width: 20px;
-  height: 20px;
-  transform: rotate(45deg);
-  background-color: rgb(56, 56, 56);
-  border-left: 2px solid black;
-  border-top: 1px solid black
-}
-
-
-.TextArea{
+.TextArea {
   margin-right: 20px;
   margin-top: 1px;
   margin-bottom: 25px;
   height: 200px;
+  border-radius: 4px;
   width: 800px;
   font-size: 20px;
   resize: none;
   background-color: rgba(128, 128, 128, 0.384);
-  color: black;
+  color: #ffffff;
 }
 
-.SubirArchivo{
+.SubirArchivo {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -334,13 +335,13 @@
   border-radius: 5px;
 }
 
-.p-subir-archivo{
+.p-subir-archivo {
   padding: 30px;
   user-select: none;
 }
 
-.btn-support{
-  color:aliceblue;
+.btn-support {
+  color: aliceblue;
   align-items: center;
   border-radius: 8px;
   border: 1px solid transparent;
@@ -350,19 +351,21 @@
   font-family: inherit;
   background-color: #353536;
   cursor: pointer;
-  justify-content: center ;
+  justify-content: center;
   transition: border-color 0.25s;
   margin: 0 auto;
   display: flex;
   margin-top: 15px;
   width: 100px;
   text-decoration: none;
-
 }
-.btn-support:hover{
+
+.ask {
+  width: 300px;
+}
+
+.btn-support:hover {
   border-color: rgb(255, 142, 4);
   transform: scale(1.2);
   border-radius: 11px;
 }
-
-

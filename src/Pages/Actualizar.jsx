@@ -1,70 +1,50 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { FcDataBackup } from "react-icons/fc";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Form from "../Components/Form";
-import { useSnackbar } from "notistack";
-
+import { useProducts } from "../hooks/useProducts";
+import { useUpdateProduct } from "../hooks/useUpdateProduct";
 
 const Actualizar = () => {
-  const [producto, setproducto] = useState(null);
-
   const { idProducto } = useParams();
 
-  const { enqueueSnackbar } = useSnackbar();
+  const { productosById: producto } = useProducts(idProducto);
 
-  useEffect(() => {
-    loadproducto();
-  }, []);
+  const { mutate, isError, isLoading } = useUpdateProduct();
 
-  const handleAlert = () => {
-    enqueueSnackbar("Se ha actualizado con éxito", {
-      variant: "success",
-    });
-  };
-
-  const onSubmit = async (data) => {
-    try {
-      const response = await axios.put(
-        `http://localhost:5282/api/Producto/Editar/${idProducto}`,
-        data
-      );
-      console.log(response.data.response);
-      handleAlert();
-      
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const loadproducto = async () => {
-    const result = await axios.get(
-      `http://localhost:5282/api/Producto/Obtener/${idProducto}`
-    );
-    setproducto(result.data.response);
+  const onSubmit = (idProducto, data) => {
+    mutate({ idProducto, data });
   };
 
   return (
-    <div>
+    <>
       <h1>
         Actualiza un Producto <FcDataBackup />{" "}
       </h1>
-      {producto && (
-        <Form
-          initialValues={{
-            idProducto: producto.idProducto,
-            idCategoria: producto.idCategoria,
-            codigoBarra: producto.codigoBarra,
-            descripcion: producto.descripcion,
-            marca: producto.marca,
-            precio: producto.precio,
-          }}
-          onSubmit={onSubmit}
-        />
+      {isError ? <h1>Ha ocurrido un error.</h1> : ""}
+      {isLoading ? (
+        <h3>Actualizando...</h3>
+      ) : (
+        <>
+          {producto && (
+            <Form
+              initialValues={{
+                idProducto: producto.idProducto,
+                idCategoria: producto.idCategoria,
+                codigoBarra: producto.codigoBarra,
+                descripcion: producto.descripcion,
+                marca: producto.marca,
+                precio: producto.precio,
+              }}
+              onSubmit={(data) => onSubmit(producto.idProducto, data)}
+            />
+          )}
+        </>
       )}
-      <Link className="LinkbuttonR" to={"/Obtener/"}>Regresar</Link>
-    </div>
+      <Link className="LinkbuttonR" to={"/Obtener/"}>
+        Regresar
+      </Link>
+    </>
   );
 };
 export default Actualizar;

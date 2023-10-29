@@ -10,11 +10,10 @@ const Form = ({ onSubmit, initialValues }) => {
         placeholder="ID del Producto"
         {...register("idProducto")}
       />
-      <select
-      className="select-form"
-      {...register("idCategoria")}
-      >
-         <option value="" disabled selected hidden>Selecciona una Categoría</option>
+      <select className="select-form" {...register("idCategoria")}>
+        <option value="" disabled selected hidden>
+          Selecciona una Categoría
+        </option>
         <option value="1">1: Tecnología</option>
         <option value="2">2: ElectroHogar</option>
         <option value="3">3: Accesorios</option>
@@ -29,8 +28,16 @@ const Form = ({ onSubmit, initialValues }) => {
         placeholder="Descripción"
         {...register("descripcion")}
       />
-      <input className="input-form" placeholder="Marca" {...register("marca")} />
-      <input className="input-form" placeholder="Precio" {...register("precio")} />
+      <input
+        className="input-form"
+        placeholder="Marca"
+        {...register("marca")}
+      />
+      <input
+        className="input-form"
+        placeholder="Precio"
+        {...register("precio")}
+      />
       <button className="btn-form" type="submit">
         Enviar
       </button>

@@ -1,20 +1,16 @@
 import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
-import { FcAddDatabase, FcHome, FcConferenceCall } from "react-icons/fc";
-import { CiCircleList } from "react-icons/ci";
 import DropMenu from "../Components/DropMenu";
-import { useState } from "react";
+import { useSEO } from "../hooks/useSeo";
 
 const Layaout = () => {
-  const { state } = useLocation();
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
 
-  console.log(state);
-
+  let name = localStorage.getItem("name");
   let logged = localStorage.getItem("Logged");
 
   const onLogout = () => {
     localStorage.removeItem("Logged");
+    localStorage.removeItem("name");
     navigate("/", {
       replace: true,
     });
@@ -25,19 +21,14 @@ const Layaout = () => {
       <header>
         <h1 className="Link">
           <Link onClick={onLogout} to="/">
-            Home
+            Inicio
           </Link>
         </h1>
 
         {logged ? (
           <>
-            <div className="user">
-              <span className="username">{state?.name}</span>
-              <div className="span-click">
-                <span onClick={() => setOpen((e) => !e)}>Acciones ↓</span>
-                {open ? <DropMenu /> : ""}
-              </div>
-            </div>
+            <span className="username">{name}</span>
+            <DropMenu />
             <button className="btn-logout" onClick={onLogout}>
               Cerrar sesión
             </button>

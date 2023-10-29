@@ -1,29 +1,28 @@
 import React, { useState } from "react";
 import { FcSupport } from "react-icons/fc";
-import LocalStorage from "../Components/LocalStorage";
-import { useSnackbar } from "notistack";
-
+import { useHandleAlert } from "../hooks/useHandleAlert";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useSEO } from "../hooks/useSeo";
 
 const Soporte = () => {
-  const [textArea, setTextArea] = LocalStorage("textArea", "");
+  const [textArea, setTextArea] = useLocalStorage("textArea", "");
 
   const [button, setButton] = useState(false);
 
-  const { enqueueSnackbar } = useSnackbar();
+  const { handleAlert } = useHandleAlert();
 
-  const handleAlert = () => {
-    enqueueSnackbar("Se ha enviado con éxito", {
-      variant: "success",
-    });
-  };
+  useSEO({
+    title: "Soporte",
+    description: "Soporte de problemas",
+  });
 
   const handleSubmit = () => {
-    handleAlert()
+    handleAlert("Se ha enviado con éxito.");
     setButton(true);
   };
 
   return (
-    <div>
+    <>
       <h1 className="title-pages">
         Soporte <FcSupport />
       </h1>
@@ -37,7 +36,13 @@ const Soporte = () => {
       <button className="btn-support" disabled={button} onClick={handleSubmit}>
         Enviar
       </button>
-    </div>
+
+      {button ? (
+        <buton className="btn-support ask">¿Quieres enviar otro mensaje?</buton>
+      ) : (
+        ""
+      )}
+    </>
   );
 };
 

@@ -1,41 +1,65 @@
-import axios from "axios";
 import { FcAddDatabase } from "react-icons/fc";
-import Form from "../Components/Form";
 import { Link } from "react-router-dom";
-import { useSnackbar } from "notistack";
+import { useForm } from "react-hook-form";
+import { useSaveProducts } from "../hooks/useSaveProducts";
+import { useSEO } from "../hooks/useSeo";
 
 const Agregar = () => {
-  const { enqueueSnackbar } = useSnackbar();
+  const { register, handleSubmit } = useForm();
+  const { mutate, isLoading, isError } = useSaveProducts();
 
-  const handleAlert = () => {
-    enqueueSnackbar("Se ha agregado con éxito", {
-      variant: "success",
-    });
-  };
+  useSEO({
+    title: "Agregar",
+    description: "Agregar productos",
+  });
 
-  const onSubmit = async (data) => {
-    try {
-      const response = await axios.post(
-        "http://localhost:5282/api/Producto/Guardar",
-        data
-      );
-      console.log(response.data.response);
-      handleAlert();
-    } catch (error) {
-      console.error(error);
-    }
+  const onSubmit = (data) => {
+    mutate(data);
   };
 
   return (
-    <div>
+    <>
       <h1 className="title-pages">
         Agrega un nuevo Producto <FcAddDatabase />{" "}
       </h1>
-      <Form onSubmit={onSubmit} />
+      {isError ? <h1>Ha ocurrido un error</h1> : ""}
+      <form className="form-products" onSubmit={handleSubmit(onSubmit)}>
+        <select className="select-form" {...register("idCategoria")}>
+          <option value="" disabled selected hidden>
+            Selecciona una Categoría
+          </option>
+          <option value="1">1: Tecnología</option>
+          <option value="2">2: ElectroHogar</option>
+          <option value="3">3: Accesorios</option>
+        </select>
+        <input
+          className="input-form"
+          placeholder="Código de barras"
+          {...register("codigoBarra")}
+        />
+        <input
+          className="input-form"
+          placeholder="Descripción"
+          {...register("descripcion")}
+        />
+        <input
+          className="input-form"
+          placeholder="Marca"
+          {...register("marca")}
+        />
+        <input
+          className="input-form"
+          placeholder="Precio"
+          {...register("precio")}
+        />
+        <button className="btn-form" type="submit" disabled={isLoading}>
+          {isLoading ? "Enviando..." : "Enviar"}
+        </button>
+      </form>
       <Link className="LinkbuttonR" to={"/Home"}>
         Regresar
       </Link>
-    </div>
+    </>
   );
 };
 export default Agregar;

@@ -1,21 +1,18 @@
-import { useSnackbar } from "notistack";
 import React, { useState } from "react";
 import { FaFileUpload, FaTrashAlt } from "react-icons/fa";
 import { LuFileCheck } from "react-icons/lu";
-import axios from "axios";
+import { useDocuments } from "../hooks/useDocuments";
+import { useSEO } from "../hooks/useSeo";
 
 const SubirArchivo = () => {
   const [archivos, setArchivos] = useState(null);
   const [image, setImage] = useState(false);
   const [fileName, setFileName] = useState("No seleccionado");
-
-  const { enqueueSnackbar } = useSnackbar();
-
-  const handleAlert = () => {
-    enqueueSnackbar("Se ha enviado con éxito", {
-      variant: "success",
-    });
-  };
+  const { ulpoadTheDocuments } = useDocuments();
+  useSEO({
+    title: "Trabja con nosotros",
+    description: "Página de empleo",
+  });
 
   const getFiles = (e) => {
     setArchivos(e);
@@ -30,15 +27,7 @@ const SubirArchivo = () => {
       x.append("files", archivos[index]);
     }
 
-    await axios
-      .post("https://localhost:7267/api/Archivos", x)
-      .then((response) => {
-        console.log(response.data);
-        handleAlert();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    await ulpoadTheDocuments(x);
 
     setImage(false);
   };

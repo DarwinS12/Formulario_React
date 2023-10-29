@@ -7,9 +7,8 @@ import Agregar from "../Pages/Agregar";
 import Eliminar from "../Pages/Eliminar";
 import Actualizar from "../Pages/Actualizar";
 import Default from "../Pages/Default";
-import PrivateRoute from "./PrivateRouter"
+import PrivateRoute from "./PrivateRouter";
 import Login from "../Pages/Login";
-import Inicio from "../Pages/Inicio";
 import SubirArchivo from "../Pages/SubirArchivo";
 import Soporte from "../Pages/Soporte";
 
@@ -18,7 +17,6 @@ function AppRouter() {
     <>
       <Routes classname="routes">
         <Route path="/" element={<Layaout />}>
-          <Route index element={<Inicio />} />
           <Route element={<PrivateRoute />}>
             <Route path="Obtener" element={<Obtener />}></Route>
             <Route path="Agregar" element={<Agregar />} />

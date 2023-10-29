@@ -1,11 +1,16 @@
 import React from "react";
-import UseFormLogin from "../Components/UseFormLogin";
 import { useNavigate } from "react-router-dom";
+import { useFormLogin } from "../hooks/useFormLogin";
+import { useSEO } from "../hooks/useSeo";
 
 const Login = () => {
   const navigate = useNavigate();
+  useSEO({
+    title: "Iniciar sesión",
+    description: "Formulario de inicio",
+  });
 
-  const { name, email, password, onInputChange, onResetForm } = UseFormLogin({
+  const { name, email, password, onInputChange, onResetForm } = useFormLogin({
     name: "",
     email: "",
     password: "",
@@ -13,12 +18,10 @@ const Login = () => {
 
   const handleOnLogin = () => {
     localStorage.setItem("Logged", "true");
+    localStorage.setItem("name", name);
 
     navigate("/Home", {
       replace: true,
-      state: {
-        name,
-      },
     });
 
     onResetForm();

@@ -1,7 +1,7 @@
-*{
+* {
   margin: 0;
   padding: 0;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
 }
 
@@ -11,109 +11,107 @@ body {
   background-color: rgba(0, 0, 0, 0.884);
 }
 
-header{
+header {
   display: flex;
-  flex: content;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
   padding: 15px;
   width: auto;
+  height: 80px;
   background-color: rgb(56, 56, 56);
-  border-radius: 6px;  
+  border-radius: 6px;
   color: rgb(56, 56, 56);
 }
 
 h1 a {
-text-decoration: none;
-color: aliceblue;
+  text-decoration: none;
+  color: aliceblue;
 }
-
 
 nav,
-.user {
-display: flex;
-align-items: center;
-gap: 20px;
-font-size: 22px;
-}
-
-.Link{
+.Link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  font-size: x-large;
   user-select: none;
 }
 
-.Link :hover{
+.Link :hover {
   color: rgb(255, 183, 0);
 }
 
 nav a {
-text-decoration: none;
-color: aliceblue; 
+  text-decoration: none;
+  color: aliceblue;
 }
 
-
-.form-products{
+.form-products {
   display: flex;
   padding: 50px;
   justify-content: center;
 }
 
 .username {
-color: aliceblue;
-font-size: xx-large;
+  color: aliceblue;
+  font-size: xx-large;
 }
 
-.user{
-  display: list-item;
+.user {
+  align-items: center;
+  justify-content: center;
+  display: flex;
   width: 600px;
   margin: 10px;
 }
 
 .wrapper {
-display: flex;
-align-items: center;
-justify-content: center;
-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
 }
 
 .input-group {
-display: flex;
-flex-direction: column;
-width: 100%;
-margin: 10px 0;
-text-align: center;
-font-size: 17px;
-padding: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px 0;
+  text-align: center;
+  font-size: 17px;
+  padding: auto;
 }
 
 .btn-send-file {
-  color:aliceblue;
+  color: aliceblue;
   display: block;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    width: 150px;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    margin: 50px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  width: 150px;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  margin: 50px;
+  transition: border-color 0.25s;
 }
 
 .btn-send-file:hover {
-  border-color: rgb(168, 97, 15);
+  border-color: rgb(255, 142, 4);
   transform: scale(1.1);
 }
 
-
-button:disabled{
+button:disabled {
   color: transparent;
   background-color: transparent;
   border-color: transparent;
 }
 
-button:disabled:hover{
+button:disabled:hover {
   border-color: transparent;
 }
 

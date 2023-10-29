@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
 import { MaterialDesignContent } from "notistack";
 import { styled } from "@mui/material";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
   "&.notistack-MuiContent-success": {
@@ -16,18 +17,22 @@ const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
   },
 }));
 
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <SnackbarProvider
-      autoHideDuration={4000}
-      Components={{
-        success: StyledMaterialDesignContent,
-        error: StyledMaterialDesignContent,
-      }}
-    >
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </SnackbarProvider>
+    <QueryClientProvider client={queryClient}>
+      <SnackbarProvider
+        autoHideDuration={4000}
+        Components={{
+          success: StyledMaterialDesignContent,
+          error: StyledMaterialDesignContent,
+        }}
+      >
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </SnackbarProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );

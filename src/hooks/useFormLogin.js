@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const UseFormLogin = (initalForm = {}) => {
+export function useFormLogin(initalForm = {}) {
   const [formState, setFormState] = useState(initalForm);
 
   const onInputChange = ({ target }) => {
@@ -22,6 +22,4 @@ const UseFormLogin = (initalForm = {}) => {
     onInputChange,
     onResetForm,
   };
-};
-
-export default UseFormLogin;
+}
